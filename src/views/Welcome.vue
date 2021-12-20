@@ -16,24 +16,71 @@
           </div>
       </header>
 
-      <section class="features">
-          <div class="row">
-              <div class="features-col">
-                  <h1>Mind, Body, Spirit</h1>
-                  <p>We want this app to improve your physical health as well as your mental health.
-                    Working out does not have to be your place of escape, it can be a place of enjoyment
-                    and interaction
-                  </p>
-              </div>
-              <div class="features-col">
-                  <h1>Share with the World</h1>
-                  <p>Share your journey with us. We encourage progressive videos, photos or short clips.
-                      What better way is there to learn from others and to view your progression throughout
-                      time.
-                  </p>
-              </div>
-          </div>
-      </section>
+        <section class="mission">
+                <div class="left">
+                    <img src="../assets/pinpng.com-vision-png-26422.png" alt="">
+                </div>
+                <div class="right">
+                    <h1>Our Mission</h1>
+                    <p>We want this app to improve your physical health as well as your mental health.
+                        Working out does not have to be your place of escape, it can be a place of enjoyment
+                        and interaction
+                    </p>
+                </div>
+        </section>
+
+        <section class="share">
+                <div class="share-left">
+                    <h1>Share with Others</h1>
+                    <p>Share your journey with us. We encourage progressive videos, photos or short clips.
+                        What better way is there to learn from others and to view your progression throughout
+                        time.
+                    </p>
+                </div>
+                <div class="share-right">
+                    <img src="../assets/pngaaa.com-1392320.png" alt="">
+                </div>
+        </section>
+
+        <section class="stats">
+            <nav class="level">
+                <div class="level-item has-text-centered">
+                    <div>
+                    <i class="fas fa-user-friends 3x"></i><p>Employees</p>
+                    <p class="title">3,456</p>
+                    </div>
+                </div>
+                <div class="level-item has-text-centered">
+                    <div>
+                    <i class="fas fa-comments"></i><p>Reviews</p>
+                    <p class="title">723</p>
+                    </div>
+                </div>
+                <div class="level-item has-text-centered">
+                    <div>
+                    <i class="fas fa-user-plus"></i><p>Active Users</p>
+                    <p class="title">456K</p>
+                    </div>
+                </div>
+                <div class="level-item has-text-centered">
+                    <div>
+                    <i class="fas fa-cloud-download-alt"></i><p>Downloads</p>
+                    <p class="title">789</p>
+                    </div>
+                </div>
+            </nav>
+        </section>
+
+        <section class="information">
+            <div class="content">
+                <p>Let's get Started</p>
+                <div class="row">
+                        <a href="" class="hero-btn sign">SIGN UP</a>
+                        <a href="" class="hero-btn log">LOGIN</a>
+                </div>
+            </div>
+        </section>
+
 
       <footer>
           <h4>About Us</h4>
@@ -50,6 +97,7 @@
 </template>
 
 <script>
+
 export default {
 
 }
@@ -57,7 +105,7 @@ export default {
 
 <style scoped>
 header{
-    height: 50vh;
+    height: 70vh;
     width: 100%;
     background-image: url('https://marmotamaps.com/de/fx/wallpaper/download/faszinationen/Marmotamaps_Wallpaper_Inntal_Desktop_1920x1080.jpg');
     background-position: center;
@@ -109,40 +157,128 @@ nav ul li:hover::after {
     font-size: 25px;
     padding: 10px;
 }
-.features{
-    width: 80%;
+.mission{
+    height: 70vh;
+    padding-top: 100px;
+    width: 100%;
+    position: relative;
     margin: auto;
-    padding-top: 50px;
-    text-align: center;
-}
-.row{
-    margin-top: 5%;
     display: flex;
-    justify-content: space-between;
-}
-.features-col{
-    flex-basis: 42%;
-    border-radius: 10px;
-    margin-bottom: 5%;
     text-align: center;
-    background: #b1d0e4;
-    padding: 35px;
 }
-.features-col p{
-    padding: 0;
+.left{
+    flex-basis: 60%;
+    padding-top: 70px;
+    padding-left: 120px;
+    width: 90%;
 }
-.features-col h1{
-    margin-bottom: 15px;
+.left img{
+    width: 90%;
+}
+.right{
+    flex-basis: 50%;
+    margin: 60px 130px;
+}
+.right h1{
+    font-size: 55px;
+    font-weight: 600;
+    color:cadetblue;
+}
+.right p{
+    font-size: 20px;
+}
+.share{
+    height: 60vh;
+    padding-top: 80px;
+    width: 100%;
+    position: relative;
+    margin: auto;
+    display: flex;
+    text-align: center;
+}
+.share-left{
+    flex-basis: 50%;
+    margin: 60px 130px;
+}
+.share-left h1{
+    font-size: 55px;
+    font-weight: 600;
+    color:cadetblue;
+}
+.share-left p{
+    font-size: 20px;
+}
+.share-right{
+    flex-basis: 60%;
+    padding-top: 70px;
+    padding-right: 120px;
+}
+.share-right img{
+    width: 80%;
+}
+.stats{
+    position: relative;
+    padding-top: 90px;
+    font-size: 20px;
+    color:#f44336;
+    font-weight: 500;
+}
+.stats .fas{
+    font-size: 30px;
+}
+.information{
+    height: 60vh;
+    padding-top: 100px;
+    width: 100%;
+    position: relative;
+    margin: auto;
+    text-align: center;
+}
+.information .row{
+    display: flex;
+    justify-content: center;
+}
+.information .row a{
+    flex-basis: 10%;
+    padding-top: 20px;
+}
+.information .content p{
+    font-size: 55px;
+    color: cadetblue;
+    font-weight: 600;
+}
+.hero-btn{
+    display: inline-block;
+    text-decoration: none;
+    color: black;
+    border: 1px solid black;
+    padding: 20px 34px;
+    font-size: 15px;
+    background: transparent;
+    position: relative;
+    cursor: pointer;
+}
+.hero-btn:hover{
+    border: 1px solid cadetblue;
+    background: cadetblue;
+    transition: 1s;
+    color: white;
+}
+.sign{
+    margin-right: 50px;
 }
 footer{
     width: 100%;
     text-align: center;
     padding: 30px 0;
+    background-color:midnightblue;
+    color: white;
 }
 footer h4{
     margin-bottom: 15px;
     margin-top: 20px;
-    font-size: 25px;
+    font-size: 35px;
+    font-weight: 600;
 }
 footer p{
     font-size: 16px;
@@ -151,7 +287,6 @@ footer p{
 footer .icons .fab{
     padding: 5px 10px;
     font-size: 22px;
-    color: rgb(111, 192, 219);
 }
 footer .fa{
     color:#f44336;
