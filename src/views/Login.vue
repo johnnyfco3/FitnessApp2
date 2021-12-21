@@ -5,11 +5,6 @@
       </header>
 
       <section class="page-content">
-          <div class="left">
-              <h1>Fitness App</h1>
-              <img src="https://marmotamaps.com/de/fx/wallpaper/download/faszinationen/Marmotamaps_Wallpaper_Inntal_Desktop_1920x1080.jpg" alt="">
-          </div>
-          <div class="right">
             <div class="card">
                 <div class="card-content">
                     <div class="media-content">
@@ -17,10 +12,11 @@
                     </div>
 
                     <div class="card-content">
+                        <form @submit.prevent="login()">
                             <div class="field">
                             <label class="label">Username</label>
                             <div class="control has-icons-left has-icons-right">
-                                <input class="input" type="text">
+                                <input class="input" type="text" v-model="username">
                                 <span class="icon is-small is-left">
                                 <i class="fas fa-user"></i>
                                 </span>
@@ -30,7 +26,7 @@
                             <div class="field">
                             <label class="label">Password</label>
                             <div class="control has-icons-left has-icons-right">
-                                <input class="input" type="email">
+                                <input class="input" type="password" v-model="password">
                                 <span class="icon is-small is-left">
                                 <i class="fas fa-lock"></i>
                                 </span>
@@ -41,60 +37,75 @@
                             <div class="control">
                                 <label class="checkbox">
                                 <input type="checkbox">
-                                I agree to the <a href="#">terms and conditions</a>
+                                Remember me
                                 </label>
                             </div>
                             </div>
 
-                            <div class="control">
-                                <button class="button is-link">Login</button>
-                            </div>
+                            <footer class="card-footer">
+                                <button type="submit" class="button is-link card-footer-item">Login</button>
+                            </footer>
+                        </form>
                     </div>
                 </div>
             </div>
-          </div>
       </section>
   </main>
 </template>
 
 <script>
-export default {
+import Session from '../service/session'
 
+export default {
+    data() {
+        return {
+            username: null,
+            password: null,
+            Session
+        }
+    },
+    methods: {
+        login(){
+            this.Session.Login(this.username, this.password)
+        }
+    },
 }
 </script>
 
 <style scoped>
+main{
+    background: url('https://iphonewallpaperblack.files.wordpress.com/2019/04/dark-iphone-wallpaper-ashueffects-1-1.jpg?w=640');
+
+}
 .page-content{
-    width: 80%;
+    height: 100vh;
+    width: 100vh;
     margin: auto;
     padding: 60px 0;
     display: flex;
+    justify-content: center;
+    align-items: center;
 }
-.page-content .left{
-    flex-basis: 95%;
-}
-.page-content .left h1{
-    text-align: center;
-    font-size: 40px;
-    font-weight: 600;
-    padding-bottom: 10px;
-    padding-right: 30px;
-}
-.page-content .left img{
+.page-content .card{
     width: 90%;
-    height: 50vh;
+    height: 80%;
+    border-radius: 2rem;
+    background-color:rgb(218, 210, 210);
 }
-.page-content .right{
-    flex-basis: 95%;
-    width: 50%;
-}
-.page-content .right .card{
-    height: 60vh;
-}
+
 .media-content h1{
     text-align: center;
     font-size: 50px;
     font-weight: 700;
     color: cadetblue;
+}
+form input, form button{
+    border-radius: 1rem;
+}
+form label, form button{
+    font-size: 18px;
+}
+form label{
+    padding-top: 15px;
 }
 </style>

@@ -4,8 +4,8 @@
           <nav>
               <img src="" alt="Website Logo">
               <ul>
-                  <li><a href="">SIGN UP</a></li>
-                  <li><a href="">LOGIN</a></li>
+                  <li><a @click="signup">SIGN UP</a></li>
+                  <li><a @click="login">LOGIN</a></li>
                   <li><a href="">ABOUT US</a></li>
                   <li><a href="">CONTACT</a></li>
               </ul>
@@ -99,7 +99,14 @@
 <script>
 
 export default {
-
+    methods: {
+        signup(){
+            this.$router.push('/signup')
+        },
+        login(){
+            this.$router.push('/login')
+        }
+    },
 }
 </script>
 
