@@ -3,12 +3,30 @@ import Welcome from '../views/Welcome'
 import Login from '../views/Login'
 import Session from '../service/session'
 import Signup from '../views/Signup'
+import Feed from '../views/Feed'
+import Profile from '../views/Profile'
+import Connections from '../views/Connections'
 
 const routes = [
     {
         path: '/',
         name: 'Welcome',
         component: Welcome
+    },
+    {
+        path: '/feed',
+        name: 'Feed',
+        component: Feed
+    },
+    {
+        path: '/connections',
+        name: 'Connections',
+        component: Connections
+    },
+    {
+        path: '/profile',
+        name: 'Profile',
+        component: Profile
     },
     {
         path: '/signup',
