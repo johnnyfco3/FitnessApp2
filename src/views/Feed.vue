@@ -10,52 +10,66 @@
                   <li><a>ACCOUNT</a></li>
               </ul>
           </nav>
+          <div class="heading">
+            <h1>LET'S EXPLORE!</h1>
+          </div>
      </header>
 
-     <section class="links">
-         <div class="tabs is-centered is-fullwidth">
-            <ul>
-                <li class="is-active">
-                <a>
-                    <span class="icon is-small"><i class="fas fa-film" aria-hidden="true"></i></span>
-                    <span>Videos</span>
-                </a>
-                </li>
-                <li>
-                <a>
-                    <span class="icon is-small"><i class="fas fa-image" aria-hidden="true"></i></span>
-                    <span>Pictures</span>
-                </a>
-                </li>
-            </ul>
-            </div>
-     </section>
-
       <section class="posts">
-          <video autoplay controls id="postvideo">
-                <source src="../assets/istockphoto-1318449016-640_adpp_is.mp4" type="video/mp4">
-          </video>
-          <video autoplay controls id="postvideo">
-                <source src="../assets/KettlebellTraining-12697.mp4" type="video/mp4">
-      </video>
+          <div class="pvideo" v-for="p in post" :key="p">
+            <video autoplay controls class="postvideo">
+                    <source :src="p.src" type="video/mp4">
+            </video>
+            <div class="caption">
+                <h1>{{p.username}}</h1>
+                <blockquote>
+                    {{p.caption}}
+                </blockquote>
+            </div>
+          </div>
       </section>
   </main>
 </template>
 
 <script>
-export default {
+import { GetAll } from '../service/posts'
 
+export default {
+    data() {
+        return {
+            post: [],
+        }
+    },
+    async mounted() {
+        this.post = await GetAll()
+    }
 }
 </script>
 
 <style scoped>
+main{
+    background-image: url('https://marmotamaps.com/de/fx/wallpaper/download/faszinationen/Marmotamaps_Wallpaper_Inntal_Desktop_1920x1080.jpg');
+    background-position: center;
+    background-size: cover;
+    color: white;
+}
 header{
     height: 55vh;
     width: 100%;
-    background-image: url('https://previews.123rf.com/images/osman3600/osman36002012/osman3600201200734/163546679-letter-m-fitness-vector-logo-design-fitness-logo-design-dumbbell-icon-gym-logo-ideas-and-fitness-log.jpg');
-    background-position: center;
-    background-size: 55%;
     position: relative;
+}
+.heading{
+    position: absolute;
+    top: 50%;
+    left: 25%;
+    transform: translate(-15%,-40%);
+    color: black;
+}
+.heading h1{
+    font-size: 7rem;
+    font-family: fantasy;
+    color: wheat;
+    font-weight: 500;
 }
 nav {
   display: flex;
@@ -71,10 +85,10 @@ nav ul li {
   padding: 0 14px;
 }
 nav ul li a {
-    color:black;
+    color:white;
     text-decoration: none;
     font-size: 18px;
-    font-weight: 400;
+    font-weight: 500;
 }
 nav ul li::after {
   content: "";
@@ -100,13 +114,36 @@ header .profile-pic .info .user{
     font-size: 30px;
     color: white;
 }
-.posts{
+.pvideo{
+    display: flex;
+    justify-content: space-between;
     padding-top: 10px;
+    padding: 20px;
+    margin: auto;
 }
-#postvideo{
-    width: 100%;
+.pvideo .postvideo{
+    width: 40%;
+    flex-basis: 60%;
 }
-.tabs span{
-    font-size: 20px;
+.pvideo .caption{
+    flex-basis: 38%;
+    line-height: 2;
+    padding: 0 2rem;
+    border: 10px solid lightblue;
+    border-radius: 1rem;
+    padding-top: 3rem;
+    color: black;
+    background: rgb(248, 245, 245);
+}
+.pvideo .caption h1{
+    font-size: 30px;
+    text-align: center;
+    padding-bottom: 1rem;
+    font-weight: 600;
+}
+.pvideo .caption blockquote{
+    font-size: 30px;
+    font-style: italic;
+    text-align: center;
 }
 </style>

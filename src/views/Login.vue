@@ -97,7 +97,7 @@ main{
     text-align: center;
     font-size: 50px;
     font-weight: 700;
-    color: cadetblue;
+    color: black;
 }
 form input, form button{
     border-radius: 1rem;

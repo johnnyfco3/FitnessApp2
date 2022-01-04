@@ -6,7 +6,7 @@ const session = {
     toRoute: '/feed',
     Login(username, password){
         const response = Login(username, password)
-        this.user = response.user
+        this.user = response.username
         router.push(this.toRoute)
     }
 }

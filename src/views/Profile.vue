@@ -19,49 +19,51 @@
           </div>
      </header>
 
-     <section class="links">
-         <div class="tabs is-centered is-fullwidth">
-            <ul>
-                <li class="is-active">
-                <a>
-                    <span class="icon is-small"><i class="fas fa-film" aria-hidden="true"></i></span>
-                    <span>Videos</span>
-                </a>
-                </li>
-                <li>
-                <a>
-                    <span class="icon is-small"><i class="fas fa-image" aria-hidden="true"></i></span>
-                    <span>Pictures</span>
-                </a>
-                </li>
-            </ul>
-            </div>
-     </section>
-
       <section class="posts">
-          <video autoplay controls id="postvideo">
-                <source src="../assets/istockphoto-1318449016-640_adpp_is.mp4" type="video/mp4">
-          </video>
-          <video autoplay controls id="postvideo">
-                <source src="../assets/KettlebellTraining-12697.mp4" type="video/mp4">
-      </video>
+          <div class="pvideo">
+            <video autoplay controls class="postvideo">
+                    <source :src="posts.src" type="video/mp4">
+            </video>
+            <div class="caption">
+                <h1>{{posts.username}}</h1>
+                <blockquote>
+                    {{posts.caption}}
+                </blockquote>
+            </div>
+          </div>
       </section>
   </main>
 </template>
 
 <script>
+import { GetByUser } from '../service/posts'
+import Session from '../service/session'
+
 export default {
+    data() {
+        return {
+            posts: [],
+            Session
+        }
+    }, 
+    async mounted() {
+        this.posts = await GetByUser(this.Session.user)
+        console.log(this.posts)
+    },
 
 }
 </script>
 
 <style scoped>
-header{
-    height: 55vh;
-    width: 100%;
+main{
     background-image: url('https://marmotamaps.com/de/fx/wallpaper/download/faszinationen/Marmotamaps_Wallpaper_Inntal_Desktop_1920x1080.jpg');
     background-position: center;
     background-size: cover;
+    color: white;
+}
+header{
+    height: 55vh;
+    width: 100%;
     position: relative;
 }
 nav {
@@ -78,10 +80,10 @@ nav ul li {
   padding: 0 14px;
 }
 nav ul li a {
-    color:black;
+    color:white;
     text-decoration: none;
     font-size: 18px;
-    font-weight: 400;
+    font-weight: 500;
 }
 nav ul li::after {
   content: "";
@@ -119,13 +121,36 @@ header .profile-pic .info .user{
     font-size: 30px;
     color: white;
 }
-.posts{
+.pvideo{
+    display: flex;
+    justify-content: space-between;
     padding-top: 10px;
+    padding: 20px;
+    margin: auto;
+    color: black;
 }
-#postvideo{
-    width: 100%;
+.pvideo .postvideo{
+    width: 40%;
+    flex-basis: 60%;
 }
-.tabs span{
+.pvideo .caption{
+    flex-basis: 38%;
+    line-height: 2;
+    padding: 0 2rem;
+    border: 10px solid lightblue;
+    border-radius: 1rem;
+    padding-top: 3rem;
+    background: rgb(248, 245, 245);
+}
+.pvideo .caption h1{
+    font-size: 30px;
+    text-align: center;
+    padding-bottom: 0.5rem;
+    font-weight: 600;
+}
+.pvideo .caption blockquote{
     font-size: 20px;
+    font-style: italic;
+    padding: 1.5rem 0.5rem;
 }
 </style>

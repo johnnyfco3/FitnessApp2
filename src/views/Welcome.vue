@@ -114,9 +114,8 @@ export default {
 header{
     height: 70vh;
     width: 100%;
-    background-image: url('https://previews.123rf.com/images/osman3600/osman36002012/osman3600201200734/163546679-letter-m-fitness-vector-logo-design-fitness-logo-design-dumbbell-icon-gym-logo-ideas-and-fitness-log.jpg');
+    background-image: url('https://marmotamaps.com/de/fx/wallpaper/download/faszinationen/Marmotamaps_Wallpaper_Inntal_Desktop_1920x1080.jpg');
     background-position: center;
-    background-size: 65%;
     position: relative;
 }
 nav {
@@ -133,10 +132,10 @@ nav ul li {
   padding: 0 14px;
 }
 nav ul li a {
-    color: black;
+    color:black;
     text-decoration: none;
     font-size: 18px;
-    font-weight: 400;
+    font-weight: 500;
 }
 nav ul li::after {
   content: "";
@@ -167,7 +166,7 @@ nav ul li:hover::after {
 }
 .mission{
     height: 70vh;
-    padding-top: 100px;
+    padding-top: 90px;
     width: 100%;
     position: relative;
     margin: auto;
@@ -197,7 +196,7 @@ nav ul li:hover::after {
 }
 .share{
     height: 60vh;
-    padding-top: 80px;
+    padding-top: 70px;
     width: 100%;
     position: relative;
     margin: auto;
